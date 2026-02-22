@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Lightbulb, Users, BarChart3, Presentation } from "lucide-react";
 import styles from "../Service.module.css";
 
@@ -48,10 +49,15 @@ export default function ConsultingService() {
 
                 {/* Info Block */}
                 <div className={styles.infoBlock}>
-                    <div className={styles.imagePlaceholder}>
-                        {/* Note: This is where the AI generated image will go */}
-                        <div className={styles.glowEffectSilver}></div>
-                        <span>Ingenieros analizando Arquitectura de Datos</span>
+                    <div className={styles.imagePlaceholder} style={{ border: 'none', background: 'transparent' }}>
+                        <Image
+                            src="/assets/consultoria.png"
+                            alt="Consultoría Tecnológica, Estrategia y Arquitectura"
+                            width={500}
+                            height={400}
+                            className={styles.image}
+                            style={{ borderRadius: 'var(--radius-lg)', objectFit: 'cover' }}
+                        />
                     </div>
                     <div className={styles.infoText}>
                         <h2>Tu socio tecnológico experto</h2>

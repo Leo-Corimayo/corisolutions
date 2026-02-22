@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Home as SmartHome, Radio, Shield, Cctv } from "lucide-react";
 import styles from "../Service.module.css";
 
@@ -55,10 +56,15 @@ export default function DomoticsService() {
                             Evaluar Proyecto Domótico
                         </Link>
                     </div>
-                    <div className={styles.imagePlaceholder}>
-                        {/* Note: This is where the AI generated image will go */}
-                        <div className={styles.glowEffect}></div>
-                        <span>Casa Inteligente con Panel de Control IoT</span>
+                    <div className={styles.imagePlaceholder} style={{ border: 'none', background: 'transparent' }}>
+                        <Image
+                            src="/assets/domotica.png"
+                            alt="Casa Inteligente y Ecosistema Domótico IoT"
+                            width={500}
+                            height={400}
+                            className={styles.image}
+                            style={{ borderRadius: 'var(--radius-lg)', objectFit: 'cover' }}
+                        />
                     </div>
                 </div>
             </section>

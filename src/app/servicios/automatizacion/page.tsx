@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Cpu as Microchip, Zap, Settings, Factory } from "lucide-react";
 import styles from "../Service.module.css";
 
@@ -55,10 +56,15 @@ export default function AutomationService() {
                             Cotizar Automatización
                         </Link>
                     </div>
-                    <div className={styles.imagePlaceholder}>
-                        {/* Note: This is where the AI generated image will go */}
-                        <div className={styles.glowEffectBronze}></div>
-                        <span>Brazo Robótico Industrial Operando</span>
+                    <div className={styles.imagePlaceholder} style={{ border: 'none', background: 'transparent' }}>
+                        <Image
+                            src="/assets/automatizacion.png"
+                            alt="Ingeniería en Automatización Industrial y Robótica"
+                            width={500}
+                            height={400}
+                            className={styles.image}
+                            style={{ borderRadius: 'var(--radius-lg)', objectFit: 'cover' }}
+                        />
                     </div>
                 </div>
             </section>
