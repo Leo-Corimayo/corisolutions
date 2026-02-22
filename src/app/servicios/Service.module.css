@@ -1,0 +1,259 @@
+.container {
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Offset para Navbar fixo */
+    display: flex;
+    flex-direction: column;
+}
+
+.heroSection {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.heroContent {
+    text-align: center;
+    max-width: 800px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    transition: color 0.3s ease;
+    align-self: flex-start;
+}
+
+.backButton:hover {
+    color: var(--text-primary);
+    transform: translateX(-5px);
+}
+
+.iconWrapper {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-light);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Detalles de servicios */
+.detailsSection {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 8rem;
+}
+
+.featureCard {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.featureCard h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.featureCard p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Bloque Interactivo de Información */
+.infoBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.5);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .infoBlock {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+    }
+}
+
+.infoText {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 2;
+}
+
+.infoText h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.infoText p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.ctaButton {
+    margin-top: 1rem;
+    display: inline-block;
+    background: var(--text-primary);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* Image Placeholder for Midjourney generation */
+.imagePlaceholder {
+    height: 400px;
+    border-radius: var(--radius-md);
+    background: #0a0a0a;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.imagePlaceholder span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Global Icon Colors */
+.iconGold {
+    color: var(--accent-gold);
+}
+
+.iconSilver {
+    color: var(--accent-silver);
+}
+
+.iconBronze {
+    color: var(--accent-bronze);
+}
+
+/* Glows */
+.heroGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.glowEffect {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+    animation: rotate 10s linear infinite;
+}
+
+.glowEffectSilver {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(192, 192, 192, 0.1) 0%, transparent 60%);
+    animation: rotate 15s linear infinite;
+}
+
+.glowEffectBronze {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(205, 127, 50, 0.1) 0%, transparent 60%);
+    animation: rotate 12s linear infinite reverse;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

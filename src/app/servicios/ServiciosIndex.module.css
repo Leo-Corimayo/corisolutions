@@ -1,0 +1,145 @@
+.container {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+    /* Offset for navbar */
+    display: flex;
+    flex-direction: column;
+}
+
+.heroGlow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse at top, rgba(192, 192, 192, 0.08) 0%, transparent 60%);
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heroSection {
+    text-align: center;
+    z-index: 10;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.servicesGridSection {
+    padding: 2rem 5% 8rem;
+    z-index: 10;
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cardHeader h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.iconWrapperGold,
+.iconWrapperSilver,
+.iconWrapperBronze {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconWrapperGold {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent-gold);
+}
+
+.iconWrapperSilver {
+    background: rgba(192, 192, 192, 0.1);
+    color: var(--accent-silver);
+}
+
+.iconWrapperBronze {
+    background: rgba(205, 127, 50, 0.1);
+    color: var(--accent-bronze);
+}
+
+.card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.readMore {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.card:hover .readMore {
+    color: var(--accent-gold);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
