@@ -51,7 +51,7 @@ export default function SoftwareService() {
                 <div className={styles.infoBlock}>
                     <div className={styles.infoText}>
                         <h2>Innovación en cada línea de código</h2>
-                        <p>En cori.solutions no construimos "páginas web"; desarrollamos activos tecnológicos reales. Utilizamos los mismos stacks que las empresas líderes mundiales para garantizar que tu software no sea un gasto, sino el motor de tu salto tecnológico para la próxima década.</p>
+                        <p>En Cori Inc. no construimos "páginas web"; desarrollamos activos tecnológicos reales. Utilizamos los mismos stacks que las empresas líderes mundiales para garantizar que tu software no sea un gasto, sino el motor de tu salto tecnológico para la próxima década.</p>
                         <Link href="/contacto" className={styles.ctaButton}>
                             Iniciar un Proyecto de Software
                         </Link>

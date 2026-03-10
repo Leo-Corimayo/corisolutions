@@ -1,30 +1,32 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+
+export const runtime = 'edge';
 
 export async function POST(req: Request) {
     try {
         const { name, email, company, message } = await req.json();
 
-        // Configuración del transporter de Nodemailer
-        // Nota para cori.solutions: Deben reemplazar PASS_AQUI con una contraseña de aplicación
-        // del correo cori.solution.ar@gmail.com o configurar variables de entorno reales.
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'cori.solution.ar@gmail.com',
-                pass: process.env.EMAIL_PASSWORD || 'hvux zrfs mxdg qbwa',
-            },
-        });
+        // Configuración para usar Resend o SMTP mediante APIs HTTP (compatible con Cloudflare Edge)
+        // Nota para Cori Inc: Debes registrarte en un servicio como Resend (resend.com), verificar coriinc.com y 
+        // colocar tu API Key en la variable de entorno RESEND_API_KEY en Cloudflare Pages.
+        const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-        // Opciones del correo electrónico a enviar
-        const mailOptions = {
-            from: '"cori.solutions Website" <cori.solution.ar@gmail.com>', // Quien envia (el sistema)
-            to: 'cori.solution.ar@gmail.com', // A quien llega el contacto (la misma empresa)
-            replyTo: email, // Permite responder directamente al cliente
+        if (!RESEND_API_KEY) {
+            console.error("Falta RESEND_API_KEY. Configura esta variable en Cloudflare Pages.");
+            return NextResponse.json(
+                { error: "Error de configuración de correo en el servidor." },
+                { status: 500 }
+            );
+        }
+
+        const resBody = {
+            from: '"Cori Inc. Website" <contacto@coriinc.com>', // Quien envia (debe estar verificado)
+            to: ['direccion@coriinc.com', 'leandro@coriinc.com'], // A quien llega el contacto
+            reply_to: email, // Permite responder directamente al cliente
             subject: `Nuevo Proyecto/Contacto de: ${name} ${company ? `(${company})` : ''}`,
             html: `
         <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-          <h2 style="color: #D4AF37; border-bottom: 2px solid #eee; padding-bottom: 10px;">Nuevo Contacto Web - cori.solutions</h2>
+          <h2 style="color: #D4AF37; border-bottom: 2px solid #eee; padding-bottom: 10px;">Nuevo Contacto Web - Cori Inc.</h2>
           
           <p><strong>Nombre:</strong> ${name}</p>
           <p><strong>Email (Contacto Directo):</strong> <a href="mailto:${email}">${email}</a></p>
@@ -35,13 +37,26 @@ export async function POST(req: Request) {
           </div>
           
           <hr style="border: none; border-top: 1px solid #eee; margin-top: 30px;">
-          <p style="font-size: 11px; color: #888; text-align: center;">Este es un mensaje automatizado generado desde el formulario interactivo de cori.solutions WebApp.</p>
+          <p style="font-size: 11px; color: #888; text-align: center;">Este es un mensaje automatizado generado desde el formulario interactivo de Cori Inc. WebApp.</p>
         </div>
-      `,
+      `
         };
 
-        // Enviar el correo
-        await transporter.sendMail(mailOptions);
+        // LLamada a la API de envío de correos (Ejemplo Resend)
+        const res = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${RESEND_API_KEY}`
+            },
+            body: JSON.stringify(resBody)
+        });
+
+        if (!res.ok) {
+            const errorData = await res.json();
+            console.error("Resend error:", errorData);
+            throw new Error('Error al enviar el correo');
+        }
 
         return NextResponse.json({ message: "Correo enviado exitosamente" }, { status: 200 });
     } catch (error) {

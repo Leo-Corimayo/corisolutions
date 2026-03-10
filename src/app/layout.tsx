@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "cori.solutions | Tecnologías de Vanguardia",
+    title: "Cori Inc. | Tecnologías de Vanguardia",
     description: "Brindando soluciones tecnológicas integrales de alta ingeniería. Expertos en IA, Software, Automatización y Domótica.",
     keywords: "tecnología, software, IA, inteligencia artificial, automatización, domótica, IoT, consultoría, Argentina",
     icons: {

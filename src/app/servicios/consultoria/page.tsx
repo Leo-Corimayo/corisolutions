@@ -61,7 +61,7 @@ export default function ConsultingService() {
                     </div>
                     <div className={styles.infoText}>
                         <h2>Tu socio tecnológico experto</h2>
-                        <p>No basta con comprar software; hay que saber integrarlo en la cultura de la empresa. En cori.solutions te dotamos del entendimiento avanzado necesario para tomar decisiones de IT fundamentadas, reduciendo el riesgo y evitando la adopción técnica fallida.</p>
+                        <p>No basta con comprar software; hay que saber integrarlo en la cultura de la empresa. En Cori Inc. te dotamos del entendimiento avanzado necesario para tomar decisiones de IT fundamentadas, reduciendo el riesgo y evitando la adopción técnica fallida.</p>
                         <Link href="/contacto" className={styles.ctaButton}>
                             Programar Asesoría
                         </Link>

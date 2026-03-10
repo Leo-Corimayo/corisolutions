@@ -15,7 +15,7 @@ export default function Footer() {
                         <Link href="/" className={styles.logoLink}>
                             <Image
                                 src="/assets/logo.png"
-                                alt="cori.solutions logo"
+                                alt="Cori Inc. logo"
                                 width={140}
                                 height={46}
                                 className={styles.logo}
@@ -45,7 +45,7 @@ export default function Footer() {
                         <ul className={styles.contactList}>
                             <li>
                                 <Mail size={18} className={styles.icon} />
-                                <a href="mailto:cori.solution.ar@gmail.com">cori.solution.ar@gmail.com</a>
+                                <a href="mailto:direccion@coriinc.com">direccion@coriinc.com</a>
                             </li>
                             <li>
                                 <MapPin size={18} className={styles.icon} />
@@ -62,7 +62,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottomBar}>
-                    <p>&copy; {currentYear} cori.solutions. Todos los derechos reservados.</p>
+                    <p>&copy; {currentYear} Cori Inc. Todos los derechos reservados.</p>
                     <div className={styles.legalLinks}>
                         <Link href="#">Privacidad</Link>
                         <Link href="#">Términos de Servicio</Link>

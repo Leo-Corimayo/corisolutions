@@ -41,7 +41,7 @@ export default function Navbar() {
                 <Link href="/" className={styles.logoContainer}>
                     <Image
                         src="/assets/logo.png"
-                        alt="cori.solutions logo"
+                        alt="Cori Inc. logo"
                         width={120}
                         height={40}
                         className={`${styles.logo} ${isSpinning ? styles.spin : ''}`}
@@ -53,7 +53,7 @@ export default function Navbar() {
                     />
                     <span className={styles.brandName}>
                         <span className={styles.brandCori}>Cori</span>
-                        <span className={styles.brandSolutions}>Solutions</span>
+                        <span className={styles.brandSolutions}>Inc.</span>
                     </span>
                 </Link>
 
