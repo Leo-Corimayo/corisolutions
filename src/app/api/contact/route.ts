@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         }
 
         const resBody = {
-            from: '"Cori Inc. Website" <contacto@coriinc.com>', // Quien envia (debe estar verificado)
+            from: '"Cori Inc. Website" <leandro@coriinc.com>', // Quien envia (debe estar verificado)
             to: ['direccion@coriinc.com', 'leandro@coriinc.com'], // A quien llega el contacto
             reply_to: email, // Permite responder directamente al cliente
             subject: `${subject || 'Nuevo Proyecto/Contacto'} de: ${name} ${company ? `(${company})` : ''}`,
