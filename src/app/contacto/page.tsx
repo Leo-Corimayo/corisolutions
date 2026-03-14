@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Mail, MapPin, Phone, Clock, Instagram, Linkedin, Facebook, Loader2 } from "lucide-react";
+import { ArrowLeft, Mail, MapPin, Phone, Instagram, Linkedin, Facebook, Loader2 } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export default function ContactPage() {
