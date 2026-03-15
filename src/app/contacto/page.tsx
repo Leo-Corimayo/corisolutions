@@ -36,9 +36,12 @@ export default function ContactPage() {
                 setSubmitStatus("success");
                 setFormData({ name: "", email: "", subject: "Consulta General", message: "" });
             } else {
+                const errorData = await response.json();
+                console.error("Detalles del error de envío:", errorData);
                 setSubmitStatus("error");
             }
-        } catch {
+        } catch (err) {
+            console.error("Error en la petición de contacto:", err);
             setSubmitStatus("error");
         } finally {
             setIsSubmitting(false);

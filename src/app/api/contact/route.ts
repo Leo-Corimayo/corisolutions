@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
         const resBody = {
             from: '"Cori Inc. Website" <leandro@coriinc.com>', // Quien envia (debe estar verificado)
-            to: ['direccion@coriinc.com', 'leandro@coriinc.com'], // A quien llega el contacto
+            to: ['leandro@coriinc.com'], // Simplificado para asegurar éxito
             reply_to: email, // Permite responder directamente al cliente
             subject: `${subject || 'Nuevo Proyecto/Contacto'} de: ${name} ${company ? `(${company})` : ''}`,
             html: `
@@ -55,14 +55,20 @@ export async function POST(req: Request) {
         if (!res.ok) {
             const errorData = await res.json();
             console.error("Resend error:", errorData);
-            throw new Error('Error al enviar el correo');
+            return NextResponse.json(
+                { 
+                    error: "Error de Resend", 
+                    details: errorData 
+                }, 
+                { status: res.status }
+            );
         }
 
         return NextResponse.json({ message: "Correo enviado exitosamente" }, { status: 200 });
     } catch (error) {
         console.error("Error enviando correo:", error);
         return NextResponse.json(
-            { error: "Error interno del servidor al procesar el formulario de contacto." },
+            { error: "Error interno del servidor", details: error instanceof Error ? error.message : String(error) },
             { status: 500 }
         );
     }
