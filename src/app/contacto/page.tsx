@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Mail, MapPin, Phone, Instagram, Linkedin, Facebook, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, Mail, MapPin, Phone, Instagram, Linkedin, Facebook, Loader2 } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export default function ContactPage() {
